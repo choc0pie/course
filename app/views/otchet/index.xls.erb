@@ -1,0 +1,29 @@
+<table border="1">
+    <tr>
+      <th> Id нарушения</th>
+      <th> Код объекта</th>
+      <th>В чем выражается нарушение</th>
+      <th>Адрес объекта с нарушением</th>
+      <th>Вид нарушения</th>
+      <th>Организация</th>
+      <th>Примененная статья</th>
+      <th>Количество предписаний</th>
+      <th>Кол-во штрафов</th>
+      <th>Сумма штрафов</th>
+    </tr>
+    <h1>Список выявленных нарушений</h1>
+    <% @offer.each do |f| %>
+    <tr>
+      <td><%= f.id %> </td>
+      <td><%= f.obcode %></td>
+      <td><%= f.reason%></td>
+      <td><%= f.adress%></td>
+      <td><%= f.offertype%></td>
+      <td><%= Organisation.find(f.organisation_id).name%></td>
+      <td><%= f.offerstat%></td>
+      <td><%= f.kolpredp%></td>
+      <td><%= f.kolshtraf%></td>
+      <td><%= f.summshtraf%></td>
+    </tr>
+    <% end %>
+  </table>

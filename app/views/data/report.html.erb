@@ -1,0 +1,22 @@
+<h1>БД</h1>
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+<%= link_to "Мои заявки",:profiles_show %><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+
+</br> 
+ <%= link_to "Поиск данных ",:data_search %> <span class="glyphicon glyphicon-search" aria-hidden="true">  </span>
+</br>
+
+<%= link_to "Внести данные",:data_add  %><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> </br> 
+
+<%= link_to "Составить отчет по данным" %><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> </br> 
+
+<%=link_to "Просмотр базы пользователей "%> <span class="glyphicon glyphicon-th" aria-hidden="true"></span> </br>
+</br>
+    <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+ 

@@ -1,0 +1,59 @@
+<script>
+$(document).on("page:change", function() {
+  $("#form-group").submit(function() {
+    $.ajax({
+      type: 'POST',
+      dataType: 'html',
+      url: $(this).attr("action"),
+      data:   $(this).serialize() 
+      success: function() {
+        alert("Done");
+      }
+    });
+  });
+});
+</script>
+<h1>Нарушение #  <%= @offer.id%> </h1>
+<%= form_for @offer, url: {action: "savechanges"}, html: {class: "form-group"} do |f| %>
+<div class="form-group">
+  ID </br>
+  <%= f.text_field :id %>
+</div>
+<div class="form-group">
+  Код объекта</br>
+  <%= f.text_field :obcode, :required=>true%>
+</div>
+<div class="form-group">
+ Причина</br>
+ <%= f.text_area :reason, size: "60x12", :required=>true %>
+</div>
+<div class="form-group">
+ Адрес </br>
+   <%= f.text_field :adress, :required=>true %>
+</div>
+<div class="form-group">
+ Тип нарушения </br>
+   <%= f.text_field :offertype, :required=>true %>
+</div>
+<div class="form-group">
+ Id организации  </br>
+  <%= f.text_field :organisation_id, :required=>true %>
+</div>
+<div class="form-group">
+ Статья наурушения </br>
+   <%= f.text_field :offerstat, :required=>true %>
+</div>
+<div class="form-group">
+ Количество предписаний  </br>
+  <%= f.text_field :kolpredp, :required=>true%>
+</div>
+<div class="form-group">
+ Количество штрафов  </br>
+  <%= f.text_field :kolshtraf , :required=>true%>
+</div>
+<div class="form-group">
+  Сумма штрафов</br>
+    <%= f.text_field :summshtraf, :required=>true %>
+</div>
+  <%= f.submit "Create" %>
+<% end %>

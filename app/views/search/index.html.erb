@@ -1,0 +1,35 @@
+<form class="form_group" id="data_res">
+	<table class="table">
+		<tr>
+			<td> Id нарушения</td>
+			<td> Код объекта</td>
+			<td>В чем выражается нарушение</td>
+			<td>Адрес объекта с нарушением</td>
+			<td>Вид нарушения</td>
+			<td>Организация</td>
+			<td>Примененная статья</td>
+			<td>Количество предписаний</td>
+			<td>Кол-во штрафов</td>
+			<td>Сумма штрафов</td>
+		</tr>
+		<h1>Список выявленных нарушений</h1>
+		<% @SDB.each do |f| %>
+		<tr>
+			<td><%= f.id %> </td>
+			<td><%= f.obcode %></td>
+			<td><%= f.reason%></td>
+			<td><%= f.adress%></td>
+			<td><%= f.offertype%></td>
+			<td><%= f.organisation_id%></td>
+			<td><%= f.offerstat%></td>
+			<td><%= f.kolpredp%></td>
+			<td><%= f.kolshtraf%></td>
+			<td><%= f.summshtraf%></td>
+		</tr>
+		<% end %>
+	</table>
+	<p>
+  Download:
+  <%= link_to "Excel", params.merge(:format => :xls) %>
+
+</p>

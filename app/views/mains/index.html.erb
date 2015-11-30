@@ -1,0 +1,29 @@
+<h1>Главное меню</h1>
+
+<% if user_signed_in? %>
+    <span>Здравствуйте, <%= current_user.email %></span>
+<% else %>
+    <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+<% end %>
+</br>
+
+<%= link_to "Мой профиль ",:profile_index,html_options = {:class => "btn btn-link"} %><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+</br> 
+ <%= link_to "Работа с базой данных",:data_index,html_options = {:class => "btn btn-link"} %> <span class="glyphicon glyphicon-search" aria-hidden="true">  </span>
+</br>
+<%=link_to "Просмотр базы пользователей ", :data_show,html_options = {:class => "btn btn-link"}%> <span class="glyphicon glyphicon-th" aria-hidden="true"></span> </br>
+</br>
+
+<!-- <div class="panel panel-default">
+			<div class="panel-heading">
+				<a href=""><%= 'Содержимое новости'%></a>
+				<span style="float:left;" class="label label-info"><%= 'User' %></span>
+			</div>
+			<div class="panel-body">
+			<span style="float:left;">
+			<%= 'дд.мм.гггг' %>
+			</span>
+				<span style="font-size: 90%; font-style: italic; float:right;">
+				</span>
+			</div>
+		</div> -->

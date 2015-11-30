@@ -1,0 +1,42 @@
+<script>
+
+	$(document).ready(function() {
+		$("#popup").magnificPopup();
+
+		$("#nifty_form").submit(function() {
+			$.ajax({
+				type: "POST",
+				dataType: 'script',
+				url: $(this).attr("action"),
+				data: $(this).serialize() 
+			}).done(function() {
+				alert($(this).serialize());
+			});
+			$('#nifty_form')[0].reset();
+		});
+	});
+</script>
+
+
+<h1>БД</h1>
+
+<a href="/data/myoffers" id="myoffers" class="btn btn-success">Мои заявки</a></br> 
+<!-- ------------------- -->
+<a href="#nifty_form" id="popup" class="btn btn-success">Добавить нарушение</a>
+<div class="hidden">
+<form class="nifty_form" id="nifty_form" action="../data/create">
+        <p><strong>Добавление нового выявленного нарушения .</strong></p>
+        <input type="text" name="offer[obcode]" placeholder="Код объекта"  /><br>
+        <input type="text" name="offer[reason]" placeholder="В чем выражается нарушение" required /><br>
+        <input type="text" name="offer[adress]" placeholder="Адрес объекта с нарушением" required /><br>
+        <input type="text" name="offer[offertype]" placeholder="Вид нарушения" required /><br>
+        <input type="text" name="offer[org]" placeholder="Организация, ответственная за нарушение, физическое лицо" required /><br>
+        <input type="text" name="offer[offerstat]" placeholder="Примененная статья" required /><br>
+        <input type="text" name="offer[kolpredp]" placeholder="Количество предписаний" required /><br>
+        <input type="text" name="offer[kolpredupr]" placeholder="Количетсво предупреждений" required /><br>
+        <input type="text" name="offer[kolshtraf]" placeholder="Кол-во штрафов" required /><br>
+        <input type="text" name="offer[summshtraf]" placeholder="Сумма штрафов" required /><br>
+
+        <button class="button" id="button" type="submit" >Отправить</button>
+      </form>
+</div>

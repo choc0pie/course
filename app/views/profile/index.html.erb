@@ -1,0 +1,36 @@
+<h1>Главное меню</h1>
+
+<% if user_signed_in? %>
+    <span>Здравствуйте, <%= current_user.fname %></span>
+<%end%>
+<%= form_for @user, url: {action: "savechanges"}, html: {class: "form-group"} do |f| %>
+<div class="form-group">
+  ID </br>
+  <%= f.text_field :id %>
+</div>
+<div class="form-group">
+  Имя</br>
+  <%= f.text_field :fname, :required=>true%>
+</div>
+<div class="form-group">
+ Фамилия</br>
+ <%= f.text_field :lname, :required=>true%>
+</div>
+<div class="form-group">
+ Отчество </br>
+   <%= f.text_field :oname, :required=>true %>
+</div>
+<div class="form-group">
+ № отдела </br>
+   <%= f.text_field :to, :required=>true %>
+</div>
+<div class="form-group">
+ email  </br>
+  <%= f.text_field :email,:required=>true%>
+</div>
+<div class="form-group">
+ Уровень доступа</br>
+   <%= f.text_field :access,:required=>true %>
+</div>
+  <%= f.submit "Create" %>
+<% end %>
